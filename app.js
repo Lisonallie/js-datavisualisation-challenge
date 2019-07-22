@@ -9,3 +9,9 @@ let table2 = document.querySelector("#table2 > caption");
 table2.insertBefore(canvas2, table2.childNodes[0]);
 
 console.log(canvas2);
+
+let canvas3 = document.createElement("canvas");
+let body = document.getElementById("bodyContent");
+body.insertBefore(canvas3, body.childNodes[0]);
+
+console.log(canvas3)
