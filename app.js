@@ -1,5 +1,7 @@
 let canvas1 = document.createElement("canvas");
 canvas1.id = "firstGraph";
+canvas1.style.width = "100px";
+canvas1.style.height = "50px";
 let body = document.getElementById("bodyContent");
 body.insertBefore(canvas1, body.childNodes[0]);
 
@@ -7,28 +9,43 @@ console.log(canvas1);
 
 let canvas2 = document.createElement("canvas");
 canvas2.id = "secondGraph";
-let table1 = document.querySelector("#table1 > caption");
-table1.insertBefore(canvas2, table1.childNodes[0]);
+let caption1 = document.querySelector("#table1 > caption");
+caption1.insertBefore(canvas2, caption1.childNodes[0]);
 
-console.log(canvas2);
 
 let canvas3 = document.createElement("canvas");
 canvas3.id = "thirdGraph";
-let table2 = document.querySelector("#table2 > caption");
-table2.insertBefore(canvas3, table2.childNodes[0]);
+let caption2 = document.querySelector("#table2 > caption");
+caption2.insertBefore(canvas3, caption2.childNodes[0]);
 
-console.log(canvas3);
 
 
 
 //first chart
-let ctx1 = document.getElementById("firstGraph").getContext('2d');
+let table1 = document.getElementById("table1");
+
+// var rowIndex = 0;
+// var cellIndex = 1;
+// table1.rows[rowIndex].cells[cellIndex];
+
+console.log(table1.rows[2].cells[2].innerHTML);
+
+
+for (rowIndex = 2; rowIndex < table1.rows.length; rowIndex++) {
+    for (cellIndex = 1; cellIndex < table1.rows[rowIndex].cells.length; cellIndex++) {
+        row[rowIndex].cells[cellIndex].innerHTML;
+    }
+}
+
+
+
+let ctx1 = document.getElementById("secondGraph").getContext('2d');
 let myChart = new Chart(ctx1, {
-    type: 'bar',
+    type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['4000'],
         datasets: [{
-            label: '# of Votes',
+            label: ['3', '12'],
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
