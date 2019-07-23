@@ -5,7 +5,6 @@ canvas1.style.height = "50px";
 let body = document.getElementById("bodyContent");
 body.insertBefore(canvas1, body.childNodes[0]);
 
-console.log(canvas1);
 
 let canvas2 = document.createElement("canvas");
 canvas2.id = "secondGraph";
@@ -19,23 +18,24 @@ let caption2 = document.querySelector("#table2 > caption");
 caption2.insertBefore(canvas3, caption2.childNodes[0]);
 
 
-
-
 //first chart
 let table1 = document.getElementById("table1");
+let data = [];
+rowIndex = 2
 
-// var rowIndex = 0;
-// var cellIndex = 1;
-// table1.rows[rowIndex].cells[cellIndex];
-
-console.log(table1.rows[2].cells[2].innerHTML);
+console.log(table1.rows[2].cells.length);
 
 
-for (rowIndex = 2; rowIndex < table1.rows.length; rowIndex++) {
-    for (cellIndex = 1; cellIndex < table1.rows[rowIndex].cells.length; cellIndex++) {
-        row[rowIndex].cells[cellIndex].innerHTML;
+for (i = 1; i < table1.rows[rowIndex].cells.length; i++) {
+    data = table1.rows[rowIndex].cells[i].innerHTML;
+    
+    console.log(table1.rows[2].cells[i].innerHTML);
+    if (i === 13) {
+        rowIndex++;
+        console.log(rowIndex);
     }
 }
+
 
 
 
@@ -43,9 +43,9 @@ let ctx1 = document.getElementById("secondGraph").getContext('2d');
 let myChart = new Chart(ctx1, {
     type: 'line',
     data: {
-        labels: ['4000'],
+        labels: data,
         datasets: [{
-            label: ['3', '12'],
+            label: years,
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
