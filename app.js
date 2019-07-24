@@ -24,43 +24,47 @@ caption2.insertBefore(canvas3, caption2.childNodes[0]);
 
 //---------------------------------------FIRST CHART-----------------------------------------
 
+
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const url = 'https://canvasjs.com/services/data/datapoints.php)';
 
 fetch(proxyurl + url)
-    .then(response => response.text())
+    .then(response => response.text()) //can be text or json. text returns strings, json returns arrays
     .then(contents => console.log(contents)) // + index of. contents comes from fetch
     .catch(() => alert("Can’t access " + url + ". It's been blocked by the browser."))
 
-let xData = [];
-let yData = [];
-let dataSets3 = [];
-
-function getXData() {
-    for (i = 2; i < contents.length; i += 6) {
+    let xData = [];
+    let yData = [];
+    let dataSets3 = [];
+    for (let i = 2; i < contents.length; i += 6) {
         xData = contents[i];
-        console.log(contents[1])
+        let json = {
+            label: ['Cuurent Statistics'], //countries
+            data: yData, //numbers
+            backgroundColor: RBG(),
+        }
+        dataSets3.push(json);
     }
-}
+
+    for (let j = 4; j < contents.length; j += 6) {
+        yData = contents[j];
+    }
+
+    let ctx3 = document.getElementById("firstGraph").getContext('2d');
+    let myChart3 = new Chart(ctx3, {
+        type: 'line',
+        data: {
+            labels: xData,
+            datasets: dataSets3,
+        },
+        // Configuration options go here
+        options: {}
+    });
+    console.log(myChart3);
 
 
 
-let ctx3 = document.getElementById("firstGraph").getContext('2d');
-let myChart3 = new Chart(ctx3, {
-    type: 'line',
-    data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [20, 10, 5, 2, 20, 30, 45] ///where the line flows; points plotted
-        }]
-    },
 
-    // Configuration options go here
-    options: {}
-});
 
 
 
