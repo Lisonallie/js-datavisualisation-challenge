@@ -25,42 +25,38 @@ caption2.insertBefore(canvas3, caption2.childNodes[0]);
 //---------------------------------------FIRST CHART-----------------------------------------
 
 
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const url = 'https://canvasjs.com/services/data/datapoints.php)';
 
-fetch(proxyurl + url)
-    .then(response => response.text()) //can be text or json. text returns strings, json returns arrays
-    .then(contents => console.log(contents)) // + index of. contents comes from fetch
-    .catch(() => alert("Can’t access " + url + ". It's been blocked by the browser."))
 
-    let xData = [];
-    let yData = [];
-    let dataSets3 = [];
-    for (let i = 2; i < contents.length; i += 6) {
-        xData = contents[i];
-        let json = {
-            label: ['Cuurent Statistics'], //countries
-            data: yData, //numbers
-            backgroundColor: RBG(),
-        }
-        dataSets3.push(json);
+
+
+let xData = [];
+let yData = [];
+let dataSets3 = [];
+for (let i = 2; i < contents.length; i += 6) {
+    xData = contents[i];
+    let json = {
+        label: ['Cuurent Statistics'], //countries
+        data: yData, //numbers
+        backgroundColor: RBG(),
     }
+    dataSets3.push(json);
+}
 
-    for (let j = 4; j < contents.length; j += 6) {
-        yData = contents[j];
-    }
+for (let j = 4; j < contents.length; j += 6) {
+    yData = contents[j];
+}
 
-    let ctx3 = document.getElementById("firstGraph").getContext('2d');
-    let myChart3 = new Chart(ctx3, {
-        type: 'line',
-        data: {
-            labels: xData,
-            datasets: dataSets3,
-        },
-        // Configuration options go here
-        options: {}
-    });
-    console.log(myChart3);
+let ctx3 = document.getElementById("firstGraph").getContext('2d');
+let myChart3 = new Chart(ctx3, {
+    type: 'line',
+    data: {
+        labels: xData,
+        datasets: dataSets3,
+    },
+    // Configuration options go here
+    options: {}
+});
+console.log(myChart3);
 
 
 
