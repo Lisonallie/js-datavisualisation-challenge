@@ -30,16 +30,26 @@ for (let i = 2; i < table1.rows[1].cells.length; i++) {
     
 }
 
+function RBG() {
+    let num = Math.round(0xffffff * Math.random());
+    let r = num >> 16;
+    let g = num >> 8 & 255;
+    let b = num & 255;
+    return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+}
+console.log(RBG());
+
+
 //COUNTRY
 for (let j = 2; j < table1.rows.length; j++) {
     countryData = table1.rows[j].cells[1].innerHTML;
     let numbersData = [];
-    let RBG = RBG();
     let tableRow = table1.rows[j];
     let jsonData = {
         label: countryData, //countries
         data: numbersData, //numbers
-        backgroundColor: RBG,
+        backgroundColor: RBG(),
+        
     };
     
     //NUMBERS
@@ -47,12 +57,9 @@ for (let j = 2; j < table1.rows.length; j++) {
         numbersData.push(parseInt(tableRow.cells[k].innerHTML));
     }
     dataSets.push(jsonData);
-    console.log(numbersData);
 }
 
-function RBG() {
-    
-}
+
 
 
 
