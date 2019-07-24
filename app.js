@@ -22,6 +22,30 @@ let caption2 = document.querySelector("#table2 > caption");
 caption2.insertBefore(canvas3, caption2.childNodes[0]);
 
 
+//---------------------------------------FIRST CHART-----------------------------------------
+
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const url = 'https://canvasjs.com/services/data/datapoints.php)';
+
+fetch(proxyurl + url)
+    .then(response => response.text())
+    .then(contents => console.log(contents))
+    .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
+
+//check if the status is 200(means everything is okay)
+if (this.status === 200) {
+    //return server response as an object with JSON.parse
+    console.log(JSON.parse(this.responseText));
+}
+
+//Common Types of HTTP Statuses
+// 200: OK
+// 404: ERROR
+// 403: FORBIDDEN
+
+
+
+
 //--------------------------------------------second chart-------------------------------------------
 let table1 = document.getElementById("table1");
 let yearData = [];
@@ -31,7 +55,7 @@ let dataSets = [];
 //----------------YEAR---------------
 for (let i = 2; i < table1.rows[1].cells.length; i++) {
     yearData[i - 2] = table1.rows[1].cells[i].innerHTML;
-    
+
 }
 
 function RBG() {
@@ -56,16 +80,16 @@ for (let j = 2; j < table1.rows.length; j++) {
     table1.rows[29].cells[1].innerHTML = "Islande";
     table1.rows[32].cells[1].innerHTML = "Suisse";
     table1.rows[36].cells[1].innerHTML = "Turquie";
-    
-    
+
+
     let numbersData = []; //-------array has to be here or it runs 36 times--------
     let tableRow = table1.rows[j];
     let jsonData = {
         label: countryData, //countries
         data: numbersData, //numbers
-        backgroundColor: RBG(),     
+        backgroundColor: RBG(),
     };
-    
+
     //--------------------NUMBERS----------------
     for (let k = 2; k < tableRow.cells.length; k++) {
         numbersData.push(parseInt(tableRow.cells[k].innerHTML));
@@ -99,7 +123,7 @@ let dataSets2 = [];
 //----------------YEAR---------------
 for (let i = 2; i < table2.rows[1].cells.length; i++) {
     yearData2[i - 2] = table2.rows[0].cells[i].innerHTML;
-    
+
 }
 
 function callRBG() {
@@ -109,25 +133,25 @@ function callRBG() {
     let b = num & 255;
     return 'rgb(' + r + ', ' + g + ', ' + b + ')';
 }
- 
+
 
 
 //---------------COUNTRY--------------------
-for (let j = 2; j < table2.rows.length; j++) {
+for (let j = 1; j < table2.rows.length; j++) {
     countryData2 = table2.rows[j].cells[1].innerHTML;
     table2.rows[8].cells[1].innerHTML = "paysdeGalles(UK)"
     table2.rows[9].cells[1].innerHTML = "Ecosse(UK)"
-    
+
     let numbersData2 = []; //-------array has to be here or it runs 36 times--------
     let tableRow2 = table2.rows[j];
     let jsonData2 = {
         label: countryData2, //countries
         data: numbersData2, //numbers
-        backgroundColor: callRBG(),     
+        backgroundColor: callRBG(),
     };
     // console.log(countryData2);
-    
-    
+
+
     //--------------------NUMBERS----------------
     for (let k = 2; k < tableRow2.cells.length; k++) {
         numbersData2.push(parseInt(tableRow2.cells[k].innerHTML));
@@ -145,5 +169,3 @@ let myChart2 = new Chart(ctx2, {
     options: {
     }
 });
-
-console.log(dataSets2);
