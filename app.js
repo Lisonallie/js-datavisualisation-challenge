@@ -25,33 +25,30 @@ caption2.insertBefore(canvas3, caption2.childNodes[0]);
 //---------------------------------------FIRST CHART-----------------------------------------
 
 
-getData();
+window.onload = getData();
 async function getData() {
     const request = "http://127.0.0.1:5500/test.json";
     let response = await fetch(request);
     let graphData = await response.json();
 
-    console.log(graphData);
-    console.log(graphData[0][1]);
-
     let yData = [];
     let dataSets3 = [];
     let xData = [];
     
-    //////X DATA
+    //////X & Y DATA
     for (let i = 0; i < graphData.length; i ++) {
-        xData = graphData[i][0];
-        yData = graphData[i][1];
+        // xData = graphData[i][0];
+        // yData = graphData[i][1];
         xData.push(graphData[i][0]);
         yData.push(graphData[i][1]);
-
     }
 
-    let json = {
+    var json = {
         label: ['Current Statistics'], //title lable
         data: yData, //numbers
         backgroundColor: RBG(),
     }
+    dataSets3.push(json);
     let ctx3 = document.getElementById("firstGraph").getContext('2d');
     let myChart3 = new Chart(ctx3, {
         type: 'line',
@@ -59,10 +56,8 @@ async function getData() {
             labels: xData,
             datasets: dataSets3,
         },
-        // Configuration options go here
         options: {}
     });
-    dataSets3.push(json);
 }
 
 
