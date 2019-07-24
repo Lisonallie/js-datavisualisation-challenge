@@ -29,19 +29,38 @@ const url = 'https://canvasjs.com/services/data/datapoints.php)';
 
 fetch(proxyurl + url)
     .then(response => response.text())
-    .then(contents => console.log(contents))
-    .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
+    .then(contents => console.log(contents)) // + index of. contents comes from fetch
+    .catch(() => alert("Can’t access " + url + ". It's been blocked by the browser."))
 
-//check if the status is 200(means everything is okay)
-if (this.status === 200) {
-    //return server response as an object with JSON.parse
-    console.log(JSON.parse(this.responseText));
+let xData = [];
+let yData = [];
+let dataSets3 = [];
+
+function getXData() {
+    for (i = 2; i < contents.length; i += 6) {
+        xData = contents[i];
+        console.log(contents[1])
+    }
 }
 
-//Common Types of HTTP Statuses
-// 200: OK
-// 404: ERROR
-// 403: FORBIDDEN
+
+
+let ctx3 = document.getElementById("firstGraph").getContext('2d');
+let myChart3 = new Chart(ctx3, {
+    type: 'line',
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [20, 10, 5, 2, 20, 30, 45] ///where the line flows; points plotted
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
 
 
 
