@@ -14,6 +14,7 @@ I learned a couple things.
 - How to create your own `JSON` file and reference the code using your own hosted server.
 - How to use chart.js to convey data visually.
 - Using AJAX to access a proxy and connect it to a URL.
+- How to add a json variable and implement it where needed.
 
 #### Project Objectives Checklist
 (from the original github [repository](https://github.com/becodeorg/ANT-Giertz-1-11/tree/master/2.The-Hills/Data-Viz))
