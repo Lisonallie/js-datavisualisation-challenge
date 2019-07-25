@@ -42,8 +42,11 @@ I learned a few things!
 
 -    [x] Syntactic rigor: I was able to translate the processes I imagined into javascript syntax.
 -    [x] Logical thinking: Through iterations and trial and error, I was able to find a logical path that works to address the issues raised by the client's request. Specifically:
-     -    [x] I was able to generate the 2 inline data graphs. - [x] I was able to generate the "remote data" graph.
-     -    [x] I was able to build a callback function to process remote data (received via ajax). - [x] I was able to make the realtime graph refresh in real time. - [x] I was able to display the detailed data when I hover the mouse.
+     -  [x] I was able to generate the 2 inline data graphs. 
+     -  [x] I was able to generate the "remote data" graph.
+     -  [x] I was able to build a callback function to process remote data (received via ajax). 
+     -  [x] I was able to make the realtime graph refresh in real time. 
+     -  [x] I was able to display the detailed data when I hover the mouse.
 
 ### 5. Debugging:
 
