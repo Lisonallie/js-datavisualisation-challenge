@@ -18,7 +18,8 @@ I used the proxy CORS Anywhere in this project for the first graph as a real-tim
             let response = await fetch(proxy + request);
             let graphData = await response.json();`
     
-I haven't included the entire function, just the part that puts the proxy into use. The first line calls the function getData() on reload which recalls the proxy information each time. The async function itself declares a const `proxy` which is the proxy link itself I have pasted above. It also declares a const `request` which is the realtime datapoints URL provided in the original [repository](https://github.com/becodeorg/ANT-Giertz-1-11/tree/master/2.The-Hills/Data-Viz) instructions. The `response` brings in the `await` part to the function which awaits the fetch and creates a new url request using the proxy and request in that order. This causes the request to go through the proxy to the new link and return the response, or `graphData` (await.response.json()).
+I haven't included the entire function, just the part that puts the proxy into use. The first line calls the function getData() on reload which recalls the proxy information each time. The async function itself declares a const `proxy` which is the proxy link itself I have pasted above. It also declares a const `request` which is the realtime datapoints URL provided in the original [repository](https://github.com/becodeorg/ANT-Giertz-1-11/tree/master/2.The-Hills/Data-Viz) instructions. The `response` brings in the `await` part to the function which awaits the fetch and creates a new url request using the proxy and request in that order. This causes the request to go through the proxy to the new link and then await the response, or `graphData` (await.response.json()).
+I then push my different json data points to the graphData array using a `for` loop, place the json variable in the chart documenatation and voila!
 
 #### What I Learned 📝📝📝
 I learned a few things!
