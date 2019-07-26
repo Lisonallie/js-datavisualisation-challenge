@@ -10,12 +10,14 @@ The objective was to use JavaScript to manipulate the DOM and place 3 charts in 
 
 #### How to Use the Proxy 🔑🔑🔑
 I used the proxy CORS Anywhere in this project for the first graph as a real-time data translator. [here](https://cors-anywhere.herokuapp.com/) is the link to the website which hosts the proxy. Requests are limited to 200 per 60 minutes so I limited the chart visibility to once per reload. [Here is the github  documentation for CORS Anywhere](https://github.com/Rob--W/cors-anywhere). How I used the proxy is with this code: 
-`window.onload = getData();
-async function getData() {
-    const proxy = "https://cors-anywhere.herokuapp.com/";
-    const request = "https://canvasjs.com/services/data/datapoints.php";
-    let response = await fetch(proxy + request);
-    let graphData = await response.json();`
+
+        `window.onload = getData();
+        async function getData() {
+            const proxy = "https://cors-anywhere.herokuapp.com/";
+            const request = "https://canvasjs.com/services/data/datapoints.php";
+            let response = await fetch(proxy + request);
+            let graphData = await response.json();`
+    
 I haven't included the entire function, just the part that puts the proxy into use. The first line calls the function getData() on reload which recalls the proxy information each time. The async function itself declares a const `proxy` which is the proxy link itself I have pasted above. It also declares a const `request` which is the realtime datapoints URL provided in the original [repository](https://github.com/becodeorg/ANT-Giertz-1-11/tree/master/2.The-Hills/Data-Viz) instructions. The `response` brings in the `await` part to the function which awaits the fetch and creates a new url request using the proxy and request in that order. This causes the request to go through the proxy to the new link and return the response, or `graphData` (await.response.json()).
 
 #### What I Learned 📝📝📝
