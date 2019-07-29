@@ -8,7 +8,9 @@ I received an assignment to incorporate graphs into an already-provided website.
 #### The Objective 👷👷👷
 The objective was to use JavaScript to manipulate the DOM and place 3 charts in specific places using chart.js. I used the data from the tables provided to fill said charts using `for` loops. I randomized the color of each chart upon reload.
 
-#### How to Use the Proxy 🔑🔑🔑
+#### How to Use the Proxy 
+
+***I have since implemented a different data code into this project but left the original code as a comment to remember how to code it.***
 I used the proxy CORS Anywhere in this project for the first graph as a real-time data translator. [here](https://cors-anywhere.herokuapp.com/) is the link to the website which hosts the proxy. Requests are limited to 200 per 60 minutes so I limited the chart visibility to once per reload. [Here is the github  documentation for CORS Anywhere](https://github.com/Rob--W/cors-anywhere). How I used the proxy is with this code: 
 
         `window.onload = getData();
