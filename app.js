@@ -28,7 +28,9 @@ caption2.insertBefore(canvas3, caption2.childNodes[0]);
 window.onload = getData();
 async function getData() {
     // const proxy = "https://cors-anywhere.herokuapp.com/";
-    const request = "https://becoderandomdata.000webhostapp.com/randomdata.php";
+    const request = "http://localhost:4567/PHP/dataviz/becode-graph-api/json.php?numbers=11";
+    console.log(request);
+    
     // const request = "http://127.0.0.1:5500/test.json";
     let response = await fetch(request);
     let graphData = await response.json();
